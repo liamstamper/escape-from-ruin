@@ -13,10 +13,12 @@ class TextRPG:
         self.display_scenario('home')
 
     def load_game_data(self):
+        #load the data from json file
         with open('game_data.json', 'r') as file:
             self.game_data = json.load(file)
 
     def load_images(self):
+        #load image and resize
         try:
             image = Image.open("game-image.png")
             resized_image = image.resize((300, 300), Image.ANTIALIAS)
@@ -26,15 +28,16 @@ class TextRPG:
             self.game_image = None
 
     def create_widgets(self):
+        #main frame
         self.main_frame = tk.Frame(self.root)
         self.main_frame.pack(padx=20, pady=20)
-
+        #image frame
         self.image_frame = tk.Frame(self.main_frame)
         self.image_frame.pack(side="left", padx=10)
         if self.game_image:
             self.image_label = tk.Label(self.image_frame, image=self.game_image)
             self.image_label.pack()
-
+        #frame for text and buttons
         self.text_button_frame = tk.Frame(self.main_frame, bd=1, relief="groove")
         self.text_button_frame.pack(side="left", fill="both", expand=True)
 
@@ -45,18 +48,19 @@ class TextRPG:
         self.button_frame.pack(fill="x")
 
     def display_scenario(self, scenario_key):
+        #display current text and buttons
         scenario = self.game_data[scenario_key]
         self.text.config(text=scenario['text'])
         # Clear existing buttons
         for widget in self.button_frame.winfo_children():
             widget.destroy()
-
         for option_key, option_text in scenario.get('options', {}).items():
             button = tk.Button(self.button_frame, text=option_text,
                                command=lambda key=option_key: self.process_choice(scenario_key, key))
             button.pack(fill='x')
 
     def process_choice(self, current_scenario, choice):
+        #handle choice and move to new scenario
         next_scenario = self.game_data[current_scenario]['next'][choice]
         if next_scenario == 'exit':
             self.end_game()
@@ -64,7 +68,9 @@ class TextRPG:
             self.display_scenario(next_scenario)
 
     def end_game(self):
+        #end scenario
         self.text.config(text="Thank you for playing!")
+        #clear buttons and show exzit button
         for widget in self.button_frame.winfo_children():
             widget.destroy()
         exit_button = tk.Button(self.button_frame, text="Exit", command=self.root.quit)
