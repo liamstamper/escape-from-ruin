@@ -1,0 +1,65 @@
+{
+    "home": {
+      "text": "Your plane has crashed and you are the only survivor. You are in a dense jungle. Choose your path wisely to survive..",
+      "options": {
+        "A": "Click to Begin"
+      },
+      "next": {
+        "A": "start"
+      }
+    },
+    "start": {
+        "text": "The small plane is rapidly filling with smoke when you come to. There is debris all around and a small fire towards the cockpit.",
+        "options": {
+            "A": "I need to look for supplies",
+            "B": "Get out of seat and go towards the back exit",
+            "C": "Go to the closer exit in front of me"
+        },
+        "next": {
+            "A": "supplies",
+            "B": "back_exit",
+            "C": "front_exit"
+        }
+      },
+    "supplies": {
+        "text": "You look for supplies and find a survival kit.",
+        "options": {
+            "A": "Use the kit",
+            "B": "Save it for later"
+        },
+        "next": {
+            "A": "use_kit",
+            "B": "save_kit"
+        }
+     },
+    "back_exit": {
+        "text": "You look for supplies and find a survival kit.",
+        "options": {
+            "A": "Use the kit",
+            "B": "Save it for later"
+        },
+        "next": {
+            "A": "use_kit",
+            "B": "save_kit"
+        }
+    },
+    "front_exit": {
+        "text": "You look for supplies and find a survival kit.",
+        "options": {
+            "A": "Use the kit",
+            "B": "Save it for later"
+        },
+        "next": {
+            "A": "use_kit",
+            "B": "save_kit"
+        }
+    },
+    "end": {
+        "text": "Thank you for playing! Press Continue to exit.",
+        "next": {
+          "continue": "exit"
+        }
+    }
+    
+  }
+  
