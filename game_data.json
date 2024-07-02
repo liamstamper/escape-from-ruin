@@ -1,6 +1,6 @@
 {
     "home": {
-      "text": "Your plane has crashed and you are the only survivor. You are in a dense jungle. Choose your path wisely to survive..",
+      "text": "Your plane has crashed and you are the only survivor. You are in a dense jungle and must choose your path wisely to survive...",
       "options": {
         "A": "Click to Begin"
       },
