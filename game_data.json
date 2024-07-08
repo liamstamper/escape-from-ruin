@@ -9,57 +9,223 @@
       }
     },
     "start": {
-        "text": "The small plane is rapidly filling with smoke when you come to. There is debris all around and a small fire towards the cockpit.",
-        "options": {
-            "A": "I need to look for supplies",
-            "B": "Get out of seat and go towards the back exit",
-            "C": "Go to the closer exit in front of me"
-        },
-        "next": {
-            "A": "supplies",
-            "B": "back_exit",
-            "C": "front_exit"
-        }
+      "text": "The plane is smokey and filled with debrit when you come to. You head hurts but you appear to be uninjured.",
+      "options": {
+        "A": "Look for supplies",
+        "B": "Get out of seat and go towards the back exit",
+        "C": "Go to the closer exit in front of me"
       },
+      "next": {
+        "A": "supplies",
+        "B": "back_exit",
+        "C": "front_exit"
+      }
+    },
     "supplies": {
-        "text": "You look for supplies and find a survival kit.",
-        "options": {
-            "A": "Use the kit",
-            "B": "Save it for later"
-        },
-        "next": {
-            "A": "use_kit",
-            "B": "save_kit"
-        }
-     },
+      "text": "You climb through the rubble of the plane looking for anything that could help you. You find one of the pilot's bags; inside it is a bowie knife.",
+      "options": {
+        "A": "Take the knife",
+        "B": "Leave it and move on"
+      },
+      "next": {
+        "A": "exit_plane",
+        "B": "exit_plane"
+      }
+    },
     "back_exit": {
-        "text": "You look for supplies and find a survival kit.",
-        "options": {
-            "A": "Use the kit",
-            "B": "Save it for later"
-        },
-        "next": {
-            "A": "use_kit",
-            "B": "save_kit"
-        }
+      "text": "You get out of your seat and climb towards the back of the plane. You find an emergency exit partially blocked by debris.",
+      "options": {
+        "A": "Clear the debris and exit",
+        "B": "Look for another way out"
+      },
+      "next": {
+        "A": "exit_plane",
+        "B": "front_exit"
+      }
     },
     "front_exit": {
-        "text": "You look for supplies and find a survival kit.",
-        "options": {
-            "A": "Use the kit",
-            "B": "Save it for later"
-        },
-        "next": {
-            "A": "use_kit",
-            "B": "save_kit"
-        }
+      "text": "You go to the closer exit in front of you and push open the door. The jungle looms before you.",
+      "options": {
+        "A": "Step into the jungle"
+      },
+      "next": {
+        "A": "jungle_path"
+      }
+    },
+    "exit_plane": {
+      "text": "You manage to exit the plane and step into the dense jungle. The sounds of wildlife surround you.",
+      "options": {
+        "A": "Walk forward into the brush",
+        "B": "Follow a small stream you see to your right"
+      },
+      "next": {
+        "A": "jungle_path",
+        "B": "stream_path"
+      }
+    },
+    "jungle_path": {
+      "text": "You step cautiously into the jungle. After a short walk through dense vegitation you see a stone structure breaking through the top of the canopy. There also appears to be a clearing to your right and a stream.",
+      "options": {
+        "A": "Approach the structure",
+        "B": "Search the surrounding area"
+      },
+      "next": {
+        "A": "ruins_approach",
+        "B": "stream_path"
+      }
+    },
+    "ruins_approach": {
+      "text": "You approach the ancient ruin, its stone walls covered in vines. The entrance is dark and foreboding.",
+      "options": {
+        "A": "Enter the ruin",
+        "B": "Circumvent the ruin and explore further"
+      },
+      "next": {
+        "A": "inside_ruins",
+        "B": "forest_explore"
+      }
+    },
+    "stream_path": {
+      "text": "You follow the stream. It appears to be fresh water and you drink as much as you can. After you notice a path leading deeper into the jungle and footprints nearby.",
+      "options": {
+        "A": "Follow the footprints",
+        "B": "Stick to the stream path"
+      },
+      "next": {
+        "A": "footprints_follow",
+        "B": "stream_follow"
+      }
+    },
+    "inside_ruins": {
+      "text": "Inside the ruin, it's dark and musty. As you move further in, you hear mechanisms clicking.",
+      "options": {
+        "A": "Proceed cautiously",
+        "B": "Turn back"
+      },
+      "next": {
+        "A": "booby_trap",
+        "B": "exit_ruins"
+      }
+    },
+    "forest_explore": {
+      "text": "You decide to explore the forest further. After a while, you find another entrance to the ruin.",
+      "options": {
+        "A": "Enter through this entrance",
+        "B": "Continue exploring the forest"
+      },
+      "next": {
+        "A": "inside_ruins",
+        "B": "forest_death"
+      }
+    },
+    "footprints_follow": {
+      "text": "Following the footprints, you eventually encounter a group of indigenous people. They seem wary of you.",
+      "options": {
+        "A": "Try to communicate with them",
+        "B": "Hide and observe them"
+      },
+      "next": {
+        "A": "indigenous_meet",
+        "B": "hide_observe"
+      }
+    },
+    "stream_follow": {
+      "text": "Sticking to the stream path, you find more signs of civilization but also potential danger.",
+      "options": {
+        "A": "Investigate further",
+        "B": "Return to the plane"
+      },
+      "next": {
+        "A": "civilization_find",
+        "B": "home"
+      }
+    },
+    "booby_trap": {
+      "text": "As you proceed, you trigger a booby trap. Spears shoot out from the walls, and you are fatally wounded.",
+      "options": {},
+      "next": {}
+    },
+    "exit_ruins": {
+      "text": "You turn back and exit the ruin, deciding to explore elsewhere.",
+      "options": {
+        "A": "Follow the stream",
+        "B": "Head back to the plane"
+      },
+      "next": {
+        "A": "stream_path",
+        "B": "home"
+      }
+    },
+    "forest_death": {
+      "text": "As you continue exploring the forest, you are bitten by a venomous snake and succumb to the poison.",
+      "options": {},
+      "next": {}
+    },
+    "indigenous_meet": {
+      "text": "You manage to communicate with the indigenous people. They offer to help you find safety.",
+      "options": {
+        "A": "Accept their help",
+        "B": "Politely decline and move on"
+      },
+      "next": {
+        "A": "safe_path",
+        "B": "forest_death"
+      }
+    },
+    "hide_observe": {
+      "text": "You hide and observe them. After a while, they move on, leaving behind some useful supplies.",
+      "options": {
+        "A": "Take the supplies and continue",
+        "B": "Follow them from a distance"
+      },
+      "next": {
+        "A": "supplies_find",
+        "B": "indigenous_follow"
+      }
+    },
+    "civilization_find": {
+      "text": "You find an abandoned village with some useful supplies. However, it looks like it might be a dangerous area.",
+      "options": {
+        "A": "Search the village",
+        "B": "Leave immediately"
+      },
+      "next": {
+        "A": "village_search",
+        "B": "jungle_path"
+      }
+    },
+    "safe_path": {
+      "text": "The indigenous people guide you through the jungle safely. You eventually reach a rescue team and find safety.",
+      "options": {},
+      "next": {}
+    },
+    "supplies_find": {
+      "text": "You find useful supplies left behind by the indigenous people. This increases your chances of survival.",
+      "options": {
+        "A": "Head towards the ruins",
+        "B": "Follow the stream"
+      },
+      "next": {
+        "A": "ruins_approach",
+        "B": "stream_path"
+      }
+    },
+    "indigenous_follow": {
+      "text": "You follow the indigenous people from a distance but get lost and succumb to the elements.",
+      "options": {},
+      "next": {}
+    },
+    "village_search": {
+      "text": "While searching the village, you trigger a hidden booby trap and are fatally injured.",
+      "next": {
+        "continue": "exit"
+      }
     },
     "end": {
-        "text": "Thank you for playing! Press Continue to exit.",
-        "next": {
-          "continue": "exit"
-        }
+      "text": "Thank you for playing! Press Continue to exit.",
+      "next": {
+        "continue": "exit"
+      }
     }
-    
   }
   
