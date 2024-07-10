@@ -8,36 +8,34 @@ class TextRPG:
         self.root = root
         self.root.title("Escape From Ruin")
         self.load_game_data()
-        self.load_images()
         self.create_widgets()
         self.display_scenario('home')
 
     def load_game_data(self):
-        #load the data from json file
+        # Load the data from json file
         with open('game_data.json', 'r') as file:
             self.game_data = json.load(file)
 
-    def load_images(self):
-        #load image and resize
+    def load_image(self, image_path):
+        # Load and resize image
         try:
-            image = Image.open("game-image.png")
+            image = Image.open(image_path)
             resized_image = image.resize((300, 300), Image.ANTIALIAS)
-            self.game_image = ImageTk.PhotoImage(resized_image)
+            return ImageTk.PhotoImage(resized_image)
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load image: {e}")
-            self.game_image = None
+            return None
 
     def create_widgets(self):
-        #main frame
+        # Main frame
         self.main_frame = tk.Frame(self.root)
         self.main_frame.pack(padx=20, pady=20)
-        #image frame
+        # Image frame
         self.image_frame = tk.Frame(self.main_frame)
         self.image_frame.pack(side="left", padx=10)
-        if self.game_image:
-            self.image_label = tk.Label(self.image_frame, image=self.game_image)
-            self.image_label.pack()
-        #frame for text and buttons
+        self.image_label = tk.Label(self.image_frame)
+        self.image_label.pack()
+        # Frame for text and buttons
         self.text_button_frame = tk.Frame(self.main_frame, bd=1, relief="groove")
         self.text_button_frame.pack(side="left", fill="both", expand=True)
 
@@ -48,9 +46,17 @@ class TextRPG:
         self.button_frame.pack(fill="x")
 
     def display_scenario(self, scenario_key):
-        #display current text and buttons
+        # Display current text and buttons
         scenario = self.game_data[scenario_key]
         self.text.config(text=scenario['text'])
+        # Load and display the image for the current scenario
+        image_path = scenario.get('image', None)
+        if image_path:
+            self.game_image = self.load_image(image_path)
+            self.image_label.config(image=self.game_image)
+        else:
+            self.image_label.config(image='')
+
         # Clear existing buttons
         for widget in self.button_frame.winfo_children():
             widget.destroy()
@@ -60,7 +66,7 @@ class TextRPG:
             button.pack(fill='x')
 
     def process_choice(self, current_scenario, choice):
-        #handle choice and move to new scenario
+        # Handle choice and move to new scenario
         next_scenario = self.game_data[current_scenario]['next'][choice]
         if next_scenario == 'exit':
             self.end_game()
@@ -68,9 +74,9 @@ class TextRPG:
             self.display_scenario(next_scenario)
 
     def end_game(self):
-        #end scenario
+        # End scenario
         self.text.config(text="Thank you for playing!")
-        #clear buttons and show exzit button
+        # Clear buttons and show exit button
         for widget in self.button_frame.winfo_children():
             widget.destroy()
         exit_button = tk.Button(self.button_frame, text="Exit", command=self.root.quit)
