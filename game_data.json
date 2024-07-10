@@ -1,6 +1,7 @@
 {
     "home": {
       "text": "Your plane has crashed and you are the only survivor. You are in a dense jungle and must choose your path wisely to survive...",
+      "image": "game-images/start.png",
       "options": {
         "A": "Click to Begin"
       },
@@ -10,6 +11,7 @@
     },
     "start": {
       "text": "The plane is smokey and filled with debrit when you come to. You head hurts but you appear to be uninjured.",
+      "image": "game-images/start.png",
       "options": {
         "A": "Look for supplies",
         "B": "Get out of seat and go towards the back exit",
@@ -23,6 +25,7 @@
     },
     "supplies": {
       "text": "You climb through the rubble of the plane looking for anything that could help you. You find one of the pilot's bags; inside it is a bowie knife.",
+      "image": "game-images/supplies.png",
       "options": {
         "A": "Take the knife",
         "B": "Leave it and move on"
@@ -34,6 +37,7 @@
     },
     "back_exit": {
       "text": "You get out of your seat and climb towards the back of the plane. You find an emergency exit partially blocked by debris.",
+      "image": "game-images/start.png",
       "options": {
         "A": "Clear the debris and exit",
         "B": "Look for another way out"
@@ -45,6 +49,7 @@
     },
     "front_exit": {
       "text": "You go to the closer exit in front of you and push open the door. The jungle looms before you.",
+      "image": "game-images/path.png",
       "options": {
         "A": "Step into the jungle"
       },
@@ -54,6 +59,7 @@
     },
     "exit_plane": {
       "text": "You manage to exit the plane and step into the dense jungle. The sounds of wildlife surround you.",
+      "image": "game-images/path.png",
       "options": {
         "A": "Walk forward into the brush",
         "B": "Follow a small stream you see to your right"
